@@ -48,7 +48,7 @@ class Link:
 
         for k in 1, 3, 5:
             x, y = self.makeFCH(k, T, e)
-            plt.plot(x, y, marker='o', markersize=4)
+            plt.plot(x, y, marker='o', markersize=1)
 
         plt.title(f"{self.name} - ФЧХ - Изменение к")
         plt.legend(("k = 1", "k = 3", "k = 5"))
