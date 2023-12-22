@@ -10,7 +10,7 @@ def findModule(x, y):
 def findAngle(x, y):
     if y == 0:
         return 0
-    return math.atan(x / y)
+    return math.atan(-x / y)
 
 
 class Aper(Link.Link):
@@ -57,6 +57,9 @@ class Aper(Link.Link):
             yp.append(y)
             xp.append(w)
         return xp, yp
+
+class dif(Link.Link):
+    pass
 
 
 ap = Aper()
