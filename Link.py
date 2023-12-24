@@ -138,3 +138,49 @@ class Link:
         plt.legend(("E = 1", "E = 3", "E = 5"))
         plt.savefig(f"{self.name} - ФЧХ - изменение E")
         plt.clf()
+
+    def changeKOnOnePic(self):
+        ax = plt.axes()
+        f = plt.figure()
+
+        f, ax = plt.subplots(2, 2)
+        f.set_size_inches(19.2, 10.8)
+        f.set_facecolor("#eee")
+
+        e = 0.5
+        T = 3
+        for k in 1, 3, 5:
+            x, y = self.makeStep(k, T, e)
+            ax[0, 0].plot(x, y, marker='o', markersize=4)
+
+
+        for k in 1, 3, 5:
+            x, y = self.makeAFCH(k, T, e)
+            ax[0, 1].plot(x, y, marker='o', markersize=4)
+
+
+        for k in 1, 3, 5:
+            x, y = self.makeACH(k, T, e)
+            ax[1, 0].plot(x, y, marker='o', markersize=4)
+
+
+        for k in 1, 3, 5:
+            x, y = self.makeFCH(k, T, e)
+            ax[1, 1].plot(x, y, marker='o', markersize=1)
+
+        ax[0, 0].set_title("Переходная характеристика")
+        ax[0, 0].legend(("k = 1", "k = 3", "k = 5"))
+
+        ax[0, 1].set_title("АФЧХ")
+        ax[0, 1].legend(("k = 1", "k = 3", "k = 5"))
+
+        ax[1, 0].set_title("АЧХ")
+        ax[1, 0].legend(("k = 1", "k = 3", "k = 5"))
+
+        ax[1, 1].set_title("ФЧХ")
+        ax[1, 1].legend(("k = 1", "k = 3", "k = 5"))
+
+        f.suptitle(f"{self.name}")
+        f.savefig(f"{self.name} - Изменение к")
+        f.clf()
+

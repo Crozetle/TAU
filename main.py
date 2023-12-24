@@ -17,8 +17,7 @@ class Aper(Link.Link):
     name = "Апериодическое звено"
 
     def __init__(self):
-        self.changeK()
-        self.changeT()
+        self.changeKOnOnePic()
 
     def makeStep(self, k, T, e):
         yp = []
